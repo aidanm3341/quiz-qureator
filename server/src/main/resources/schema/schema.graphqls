@@ -1,0 +1,19 @@
+type Query {
+    questions(amount: Int): [IQuestion]
+}
+
+interface IQuestion {
+    question: String
+    answer: String
+}
+
+type TextQuestion implements IQuestion {
+    question: String
+    answer: String
+}
+
+type PictureQuestion implements IQuestion {
+    question: String
+    answer: String
+    pictureUrl: String
+}
