@@ -1,5 +1,7 @@
 package com.aidan.QuizGenerator;
 
+import com.aidan.QuizGenerator.dao.HardcodedQuestionDao;
+import com.aidan.QuizGenerator.dao.QuestionDao;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
@@ -20,5 +22,10 @@ public class Configuration {
         FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(0);
         return bean;
+    }
+
+    @Bean
+    public QuestionDao questionDao() {
+        return new HardcodedQuestionDao();
     }
 }
