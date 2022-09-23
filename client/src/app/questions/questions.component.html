@@ -1,10 +1,11 @@
-<div *ngFor="let question of questions">
-    <h1>{{ question.question }}</h1>
-    <div *ngIf="question.pictureUrl">
-        <img src="{{ getPictureUrl(question.pictureUrl) }}">
-        <br>
+<div class="background" (click)="getQuestions()">
+    <div *ngFor="let question of questions">
+        <div class="question-text">{{ question.question }}</div>
+        <div *ngIf="question.pictureUrl">
+            <img src="{{ getPictureUrl(question.pictureUrl) }}">
+            <br>
+        </div>
+        <p>{{ question.answer }}</p>
     </div>
-    <p>{{ question.answer }}</p>
 </div>
 
-<p>{{ error }}</p>

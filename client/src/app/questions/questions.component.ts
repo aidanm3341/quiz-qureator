@@ -11,7 +11,7 @@ export interface Question {
 @Component({
     selector: 'app-questions',
     templateUrl: './questions.component.html',
-    styleUrls: ['./questions.component.sass']
+    styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
 
@@ -22,19 +22,23 @@ export class QuestionsComponent implements OnInit {
     constructor(private apollo: Apollo) { }
     
     ngOnInit(): void {
+        this.getQuestions();
+    }
+
+    getPictureUrl(url: string): string {
+        return this.serverUrl + url;
+    }
+
+    getQuestions() {
         this.apollo.watchQuery({
             query: GET_QUESTIONS,
-            variables: {amount: 2}
+            variables: {amount: 1}
         }).valueChanges.subscribe(({data, error}: any) => {
             this.questions = data.questions;
             console.log(this.questions)
 
             this.error = error;
         })
-    }
-
-    getPictureUrl(url: string): string {
-        return this.serverUrl + url;
     }
     
 }
