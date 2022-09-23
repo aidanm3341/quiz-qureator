@@ -18,7 +18,7 @@ public class QuestionDataFetcher {
             new TextQuestion("What is the capital of Afghanistan", "Kabul"),
             new TextQuestion("Who wrote the Ender's Game saga?", "Orsen Scott Card"),
             new TextQuestion("Who played Mrs.Weasley in Harry Potter", "Julie Walters"),
-            new PictureQuestion("Who is this character?", "Tony the Tiger", "static/tony.jpeg")
+            new PictureQuestion("Who is this character?", "Tony the Tiger", "tony.jpeg")
     );
 
     @DgsQuery

@@ -1,9 +1,10 @@
 <div *ngFor="let question of questions">
     <h1>{{ question.question }}</h1>
-    <p>{{ question.answer }}</p>
     <div *ngIf="question.pictureUrl">
-        <img src="{{ question.pictureUrl }}">
+        <img src="{{ getPictureUrl(question.pictureUrl) }}">
+        <br>
     </div>
+    <p>{{ question.answer }}</p>
 </div>
 
 <p>{{ error }}</p>

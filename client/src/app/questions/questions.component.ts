@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { query } from 'express';
 import { GET_QUESTIONS } from '../graphql.queries';
 
 export interface Question {
@@ -18,6 +17,7 @@ export class QuestionsComponent implements OnInit {
 
     questions: Question[] = [];
     error: string = "";
+    serverUrl: string = "http://localhost:8080/";
     
     constructor(private apollo: Apollo) { }
     
@@ -31,6 +31,10 @@ export class QuestionsComponent implements OnInit {
 
             this.error = error;
         })
+    }
+
+    getPictureUrl(url: string): string {
+        return this.serverUrl + url;
     }
     
 }
