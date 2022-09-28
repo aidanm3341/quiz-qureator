@@ -1,4 +1,4 @@
-<div class="background" (click)="getQuestions()">
+<div class="background" (click)="getQuestions()" [ngStyle]="{ 'background-color': 'rgb(' + r + ', ' + g + ', ' + b + ')' }">
     <div *ngFor="let question of questions">
         <div class="question-text">{{ question.question }}</div>
         <div *ngIf="question.pictureUrl">
