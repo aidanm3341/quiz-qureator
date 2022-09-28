@@ -1,19 +1,17 @@
-package com.aidan.QuizGenerator;
+package com.aidan.QuizGenerator.config;
 
-import com.aidan.QuizGenerator.dao.HardcodedQuestionDao;
-import com.aidan.QuizGenerator.dao.QuestionDao;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@org.springframework.context.annotation.Configuration
-public class Configuration {
+@Configuration
+public class CorsConfiguration {
     @Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
+        org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedHeader("*");
@@ -22,10 +20,5 @@ public class Configuration {
         FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(0);
         return bean;
-    }
-
-    @Bean
-    public QuestionDao questionDao() {
-        return new HardcodedQuestionDao();
     }
 }

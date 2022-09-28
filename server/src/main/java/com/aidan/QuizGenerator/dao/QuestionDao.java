@@ -1,9 +1,9 @@
 package com.aidan.QuizGenerator.dao;
 
 import com.aidan.QuizGenerator.model.Question;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 public interface QuestionDao {
-    List<Question> getQuestions();
+    Flux<Question> getQuestions(long amount);
+    void saveQuestion(Question question);
 }
