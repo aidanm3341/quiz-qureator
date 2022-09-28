@@ -22,6 +22,8 @@ export class QuestionsComponent implements OnInit {
     r: number = 255;
     g: number = 255;
     b: number = 255;
+
+    qOrA: string = 'Q';
     
     constructor(private apollo: Apollo) { }
     
@@ -33,7 +35,18 @@ export class QuestionsComponent implements OnInit {
         return this.serverUrl + url;
     }
 
-    getQuestions() {
+    continue(): void {
+        switch(this.qOrA) {
+            case 'Q':
+                this.qOrA = 'A';
+                break;
+            case 'A':
+                this.getQuestions();
+                break;
+        }
+    }
+
+    getQuestions(): void {
         this.apollo.watchQuery({
             query: GET_QUESTIONS,
             variables: {amount: 1}
@@ -46,6 +59,8 @@ export class QuestionsComponent implements OnInit {
             this.b = this.randomIntFromInterval(150, 230);
 
             this.error = error;
+
+            this.qOrA = 'Q';
         })
     }
 
