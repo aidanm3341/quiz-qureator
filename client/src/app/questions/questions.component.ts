@@ -14,7 +14,6 @@ export interface Question {
     styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-
     questions: Question[] = [];
     error: string = "";
     serverUrl: string = "http://localhost:8080/";
@@ -67,6 +66,4 @@ export class QuestionsComponent implements OnInit {
     randomIntFromInterval(min: number, max: number): number { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
-      
-    
 }
